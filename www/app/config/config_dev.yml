@@ -47,5 +47,5 @@ assetic:
 swiftmailer:
     transport: gmail
     username: lamzin.an@gmail.com
-    password: parabellum81
+    password: 123456
 #    delivery_address: me@example.com
