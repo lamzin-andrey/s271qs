@@ -1,0 +1,11 @@
+1. git clone git@github.com:lamzin-andrey/kd.loc.git
+2. php app/console doctrine:database:create
+3. php app/console doctrine:schema:update --force
+4. Установите параметры  swiftmailer в app/config/config_prod.yml
+5. Приложение facebook 933540580010631 настроено на работу с сайтом с url 
+    http://kd.loc
+    Если вам нужен другой url отредактируйте параметры 
+    facebook приложения
+	src/StudyApp/OAuthBundle/Resources/config/parameters.yml
+6. php app/console cache:clear --env=prod
+   php app/console cache:clear --env=dev

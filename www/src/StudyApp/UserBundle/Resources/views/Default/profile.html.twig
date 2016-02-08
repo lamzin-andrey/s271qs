@@ -1,0 +1,37 @@
+{% extends 'StudyAppStudyAppBundle::layout.html.twig' %}
+{% block stylesheet %}
+{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/authpage.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/signup.css') }}">
+{% endblock %}
+
+{% block body %}
+{% block navbar %}
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand white" href="{{ path('study_app_home') }}">{% trans %}Simple Application Example{% endtrans %}</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ path('logout') }}">{% trans %}Logout{% endtrans %}</a></li>
+      </ul>
+    </div><!-- /.nav-collapse -->
+  </div><!-- /.container -->
+</nav><!-- /.navbar -->
+{% endblock %}
+<div class="container">
+  <form class="form-authpage form-signup" action="{{ path('profile_update') }}" method="POST">
+  	<div class="bg-danger text-danger {% if not ( form_errors(form) ) %}hide{% endif %}" id="errorsarea">
+	   {{ form_errors(form) }}
+	</div>
+    <h2 class="form-signup-heading">{% trans %}Change you profile data{% endtrans %}</h2>
+    {{ form_widget(form.first_name, {'attr': {'class': 'form-control'} } ) }}
+    {{ form_widget(form.last_name, {'attr': {'class': 'form-control mar-bot-10'} } ) }}
+    <input class="btn btn-lg btn-primary btn-block" type="submit"  value="{% trans %}Save{% endtrans %}">
+    <input type="hidden" name="_method" value="patch"/>
+    {{ form_rest(form) }}
+  </form>
+
+</div> <!-- /container -->
+{% endblock %}

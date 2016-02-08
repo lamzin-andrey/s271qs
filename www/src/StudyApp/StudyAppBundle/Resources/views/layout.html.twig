@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Simple Application Simfony 2</title>
+	{% block stylesheet %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/pagination.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/bootstrap-theme.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/offcanvas.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/app.css') }}">
+	{% endblock %}
+	{% block javascript %}
+    <script type="text/javascript" src="{{ asset('bundles/studyappstudyapp/js/jquery-1.11.0.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/studyappstudyapp/js/bootstrap.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/studyappstudyapp/js/bootstrap-paginator.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/studyappstudyapp/js/app.js') }}"></script>
+	{% endblock %}
+	        
+</head>
+<body>
+{% block navbar %}
+{% if not (is_auth) %}
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="{{ path('study_app_home') }}" >{% trans %}Home{% endtrans %}</a>
+	    </div>
+	    <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{ path('study_app_signup') }}">{% trans %}Sign Up{% endtrans %}</a></li>
+          </ul>
+        </div>
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+{% else %}
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+        <a class="navbar-brand white" href="{{ path('study_app_home') }}">{% trans %}Simple Application Example{% endtrans %}</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="{{ path('profile') }}">{% trans %}Change Profile{% endtrans %}</a></li>
+      <li><a href="{{ path('logout') }}">{% trans %}Logout{% endtrans %}</a></li>
+    </ul>
+    </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+{% endif %}
+{% endblock %}
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+     <div class="col-xs-12">
+{% block body%}
+{% endblock %}
+	</div>
+	</div>
+	</div>
+</body>
+</html>

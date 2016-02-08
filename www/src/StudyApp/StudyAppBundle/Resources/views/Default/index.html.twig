@@ -1,0 +1,5 @@
+{% if is_auth %}
+{% include 'StudyAppStudyAppBundle:Default:member_page.html.twig' %}
+{% else %}
+{% include 'StudyAppStudyAppBundle:Default:anonymous_page.html.twig' %}
+{% endif %}

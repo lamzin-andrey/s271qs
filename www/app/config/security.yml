@@ -1,0 +1,26 @@
+security:
+    encoders:
+      StudyApp\UserBundle\Entity\User: { algorithm: bcrypt }
+    providers:
+        #in_memory:
+        #    memory: ~
+        #database:
+          #entity: {class: StudyApp\UserBundle\Entity\User, property: username}
+        special:
+            id: study_app_user_provider
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            security: false
+
+        main:
+            pattern: ^/
+            anonymous: ~
+            form_login: ~
+            logout:
+              target: /
+    access_control:
+        - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/comments, roles: ROLE_USER }
+            

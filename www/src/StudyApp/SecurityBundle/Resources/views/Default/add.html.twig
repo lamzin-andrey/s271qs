@@ -1,0 +1,56 @@
+{% extends 'StudyAppStudyAppBundle::layout.html.twig' %}
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/authpage.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/signup.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/bootstrap-glyphicons.css') }}">
+{% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand white" href="/">{% trans %}Simple Application Example{% endtrans %}</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/profile">{% trans %}Change Profile{% endtrans %}</a></li>
+            <li><a href="#" id="menu-add-comment">{% trans %}Comment{% endtrans %}</a></li>
+            <li><a href="/logout">{% trans %}Logout{% endtrans %}</a></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+         <div class="container">
+     <div class="row row-offcanvas row-offcanvas-right">
+     <div class="col-xs-12">
+		<nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/" >{% trans %}Home{% endtrans %}</a>
+	    </div>
+	    <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{ path('study_app_login') }}">{% trans %}Login{% endtrans %}</a></li>
+          </ul>
+        </div>
+  </div><!-- /.container -->
+</nav><!-- /.navbar -->
+{% endblock %}
+{% block body %}
+<form class="form-authpage form-signup" action="{{ path('study_app_user_create') }}" method="POST">
+	<div class="bg-danger text-danger pad-15 {% if (not error ) %} hide {% endif %}" id="errorsarea">
+	   {{ form_errors(form.email) }}
+	   {{ form_errors(form.username) }}
+	</div>
+	<h2 class="form-signup-heading">{% trans %}Welcome!{% endtrans %}</h2>
+
+	<input type="text" id="user_registration_type_username" name="user_registration_type[username]" required="required" maxlength="64" class="form-control" placeholder="{% trans %}Username{% endtrans %} " value="{{ form.vars.value.username }}" />
+	<input type="email" id="user_registration_type_email" name="user_registration_type[email]" required="required" maxlength="64" class="form-control" placeholder="{% trans %}Email{% endtrans %}" value="{{ form.vars.value.email }}"/>
+	<input type="password" id="user_registration_type_password" name="user_registration_type[password]" required="required" maxlength="60" class="form-control" placeholder="{% trans %}Password{% endtrans %}"  />
+	<input type="text" id="user_registration_type_first_name" name="user_registration_type[first_name]" required="required" maxlength="15" pattern=".{2,}" class="form-control" placeholder="{% trans %}First Name{% endtrans %}" value="{{ form.vars.value.firstName }}" />
+	<input type="text" id="user_registration_type_last_name" name="user_registration_type[last_name]" required="required" maxlength="32" class="form-control mar-bot-10" placeholder="{% trans %}Last Name{% endtrans %}" value="{{ form.vars.value.lastName }}" />
+	<input class="btn btn-lg btn-primary btn-block" type="submit"  value="{% trans %}Sign Up{% endtrans %}">
+	{{ form_widget(form._token) }}
+	
+</form>
+{% endblock %}

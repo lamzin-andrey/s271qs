@@ -1,0 +1,16 @@
+{% extends 'StudyAppStudyAppBundle::layout.html.twig' %}
+{% block stylesheet %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/studyappstudyapp/css/bootstrap-glyphicons.css') }}">
+{% endblock %}
+
+{% block javascript %}
+{{ parent() }}
+{% endblock %}
+
+{# block navbar #}{# endblock #}
+
+{% block body %}
+	{% include 'StudyAppStudyAppBundle:Default:article.html.twig' %}
+{% endblock %}
+

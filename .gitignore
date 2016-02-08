@@ -1,0 +1,4 @@
+www/app/cache
+www/app/logs
+access.log
+error.log

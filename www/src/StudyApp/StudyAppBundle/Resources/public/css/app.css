@@ -1,0 +1,22 @@
+.pad-15 {
+	padding:15px;	
+}
+.white {
+	color:white !important;
+}
+.fbook_friends {
+	position:fixed;
+	top: 71px;
+	right: 10px;
+	background-color:white;
+	border: solid 1px #240C0C;
+}
+.fb_friends_title {
+	background-color:#240C0C;
+	color:white;
+	font-weight:bold;
+	padding: 2px 8px;
+}
+.fb_friends li{
+	list-style-type:none;
+}

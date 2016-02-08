@@ -1,0 +1,31 @@
+study_app_study_app:
+    resource: "@StudyAppStudyAppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+study_app_user:
+    resource: "@StudyAppUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
+study_app_security:
+    resource: "@StudyAppSecurityBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+login:
+  pattern: /login
+
+login_check:
+  pattern: /login_check
+
+logout:
+  pattern: /logout
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+
+
